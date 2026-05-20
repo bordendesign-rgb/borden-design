@@ -55,7 +55,7 @@
             flex-direction: column;
             gap: 40px;
             padding: 60px 40px;
-            max-width: 1100px; /* Widened for beautiful dual-column presentation */
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
         }
@@ -186,7 +186,7 @@
         /* Mobile Viewports styling rules */
         @media (max-width: 900px) {
             .contact-content-wrapper { flex-direction: column; }
-            .contact-visual-panel { display: none; } /* Hide heavy graphic on tight mobile viewport data pipelines */
+            .contact-visual-panel { display: none; }
         }
         @media (max-width: 768px) {
             .page-title { font-size: 2.3rem; }
@@ -221,22 +221,22 @@
 
         <div class="contact-content-wrapper">
             <div class="form-container">
-                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Submission workflow connected successfully.');">
+                <form name="borden-contact" method="POST" data-netlify="true">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" required autocomplete="name">
+                        <input type="text" id="name" name="name" required autocomplete="name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" required autocomplete="email">
+                        <input type="email" id="email" name="email" required autocomplete="email">
                     </div>
                     <div class="form-group">
                         <label for="project-type">Project Scope</label>
-                        <input type="text" id="project-type" placeholder="e.g., Website Development, Logo Design, CRM Tuning">
+                        <input type="text" id="project-type" name="project-type" placeholder="e.g., Website Development, Logo Design, CRM Tuning">
                     </div>
                     <div class="form-group">
                         <label for="message">Project Requirements</label>
-                        <textarea id="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn-submit">Submit Inquiry</button>
                 </form>
