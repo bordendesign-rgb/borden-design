@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borden Design | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --borden-dark: #0a0b10;
+            --borden-card: #131520;
+            --borden-platinum: #e2e8f0;
+            --borden-accent: #00f2fe; 
+            --borden-text-muted: #8ea0dd;
+            --gradient-accent: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        /* Reset and Base Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--borden-dark); 
+            color: #ffffff; 
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Clean Document Flow Navigation (No Overlaps) */
+        nav {
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: #0a0b10;
+            width: 100%;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { height: 50px; width: 50px; border-radius: 8px; object-fit: cover; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; }
+        
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #ffffff; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--borden-accent); }
+        .btn-cta { background: transparent; border: 1px solid var(--borden-accent); padding: 10px 22px; border-radius: 25px; color: var(--borden-accent) !important; font-weight: 600; transition: 0.3s; }
+        .btn-cta:hover { background: var(--gradient-accent); color: var(--borden-dark) !important; border-color: transparent; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); transform: scale(1.03); }
+
+        /* Main Page Layout Wrapper */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Page Intro Section */
+        .page-header {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .page-title { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--borden-platinum); margin-bottom: 16px; }
+        .page-title span { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .page-subtitle { font-size: 1.1rem; color: var(--borden-text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* Case Studies Grid Layout */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .project-card { 
+            background: var(--borden-card); 
+            border: 1px solid rgba(255,255,255,0.02); 
+            padding: 30px; 
+            border-radius: 24px; 
+            transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card:hover { transform: translateY(-6px) scale(1.02); border-color: rgba(0, 242, 254, 0.3); box-shadow: 0 15px 35px rgba(0, 242, 254, 0.12); }
+        
+        /* Premium Cinematic Project Visuals */
+        .project-image-wrapper {
+            width: 100%;
+            height: 190px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #0d0e15;
+        }
+        .project-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.70;
+            transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .project-card:hover .project-image-wrapper img {
+            opacity: 0.95;
+            transform: scale(1.05);
+        }
+
+        .project-meta { margin-bottom: 24px; }
+        .project-tag { display: inline-block; color: var(--borden-accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .project-card h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 14px; color: var(--borden-platinum); }
+        .project-description { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6; }
+        
+        /* Tech Tags Info */
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tech-tag { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; color: var(--borden-platinum); }
+
+        /* Action Link */
+        .project-link { display: inline-flex; align-items: center; gap: 8px; color: var(--borden-accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.2s; width: fit-content; margin-top: auto; padding-top: 10px; }
+        .project-link span { transition: 0.3s; display: inline-block; }
+        .project-card:hover .project-link span { transform: translateX(4px); }
+        .project-link:hover { opacity: 0.8; }
+
+        /* Global Footer */
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 0; text-align: center; font-size: 0.85rem; color: var(--borden-text-muted); background: #08090d; width: 100%; margin-top: auto; }
+
+        /* Mobile Viewports styling rules */
+        @media (max-width: 768px) {
+            .page-title { font-size: 2.3rem; }
+            .nav-links { display: none; } 
+            main { padding: 40px 20px; gap: 40px; }
+            .project-card { padding: 24px; }
+            .project-image-wrapper { height: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <img src="borden-logo.png" alt="Borden Design Logo">
+            <span class="logo-text">BORDEN DESIGN</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html" style="color: var(--borden-accent);">Portfolio</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-cta">Get a Quote</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <h1 class="page-title">Featured <span>Projects</span></h1>
+            <p class="page-subtitle">A collection of custom web builds and business workflow solutions engineered for high performance.</p>
+        </section>
+
+        <section class="portfolio-grid">
+            
+            <div class="project-card">
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Responsive Web Architecture Layout">
+                </div>
+                <div class="project-meta">
+                    <span class="project-tag">Web Development</span>
+                    <h2>Custom Web Architecture</h2>
+                    <p class="project-description">A sleek, fully responsive business platform built completely from scratch using clean layouts. Optimized specifically for fast rendering speeds and a refined desktop presentation layer.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Semantic Layouts</span>
+                    </div>
+                </div>
+                <a href="#" class="project-link">Launch Project <span>→</span></a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Dynamic Frontend Development Interface">
+                </div>
+                <div class="project-meta">
+                    <span class="project-tag">Front-End Engineering</span>
+                    <h2>Interactive Web Platform</h2>
+                    <p class="project-description">An advanced front-end project focusing on seamless user interactivity. Integrates native JavaScript programming to power responsive visual elements and dynamic component behaviors.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">UI Interactivity</span>
+                    </div>
+                </div>
+                <a href="#" class="project-link">Launch Project <span>→</span></a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Optimized Corporate Management Dashboard">
+                </div>
+                <div class="project-meta">
+                    <span class="project-tag">Systems & Design</span>
+                    <h2>CRM Architecture & Branding</h2>
+                    <p class="project-description">Implementation of specialized Zoho CRM pipelines designed to streamline data organization and track client deals cleanly. Paired with high-fidelity, minimalist logo designs engineered for modern digital branding.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Zoho CRM</span>
+                        <span class="tech-tag">Logo Branding</span>
+                        <span class="tech-tag">Data Optimization</span>
+                    </div>
+                </div>
+                <a href="contact.html" class="project-link">Inquire About This Service <span>→</span></a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Borden Design. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

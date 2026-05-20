@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borden Design | Web, Logos, & CRM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --borden-dark: #0a0b10;
+            --borden-card: #131520;
+            --borden-platinum: #e2e8f0;
+            --borden-accent: #00f2fe; 
+            --borden-text-muted: #8ea0dd;
+            --gradient-accent: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        /* Reset and Base Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--borden-dark); 
+            color: #ffffff; 
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Clean Document Flow Navigation (No Overlaps) */
+        nav {
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: #0a0b10;
+            width: 100%;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { height: 50px; width: 50px; border-radius: 8px; object-fit: cover; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; }
+        
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #ffffff; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--borden-accent); }
+        .btn-cta { background: transparent; border: 1px solid var(--borden-accent); padding: 10px 22px; border-radius: 25px; color: var(--borden-accent) !important; font-weight: 600; transition: 0.3s; }
+        .btn-cta:hover { background: var(--gradient-accent); color: var(--borden-dark) !important; border-color: transparent; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); transform: scale(1.03); }
+
+        /* Main Page Layout Wrapper */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Hero Section (Cleanly spaced down) */
+        .hero-section {
+            text-align: center;
+            width: 100%;
+        }
+        .hero-badge { display: inline-block; background: rgba(0, 242, 254, 0.06); border: 1px solid rgba(0, 242, 254, 0.2); color: var(--borden-accent); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.3; font-weight: 700; max-width: 950px; margin: 0 auto 24px; color: var(--borden-platinum); }
+        .hero-title span { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtitle { font-size: 1.15rem; color: var(--borden-text-muted); max-width: 650px; margin: 0 auto 40px; }
+        
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; margin-bottom: 60px; }
+        .btn-primary { background: var(--gradient-accent); color: var(--borden-dark); padding: 14px 32px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4); }
+        .btn-secondary { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #ffffff; padding: 14px 32px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px) scale(1.03); border-color: rgba(255,255,255,0.2); }
+
+        /* Cinematic Tech Showcase Image Container */
+        .hero-image-showcase {
+            max-width: 950px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 242, 254, 0.08);
+            transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: #111219;
+        }
+        .hero-image-showcase:hover {
+            transform: translateY(-6px) scale(1.01);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 242, 254, 0.2);
+        }
+        .hero-image-showcase img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: 0.5s ease;
+        }
+        .hero-image-showcase:hover img {
+            opacity: 1;
+        }
+
+        /* Focus Cards Layout */
+        .focus-section { width: 100%; }
+        .section-headline { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 48px; text-align: center; }
+        .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .focus-card { background: var(--borden-card); border: 1px solid rgba(255,255,255,0.02); padding: 40px 30px; border-radius: 20px; transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); position: relative; }
+        .focus-card:hover { transform: translateY(-6px) scale(1.02); border-color: rgba(0, 242, 254, 0.3); box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15); }
+        .focus-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; transition: 0.3s; }
+        .focus-card:hover .focus-icon { transform: scale(1.1); filter: drop-shadow(0 0 8px var(--borden-accent)); }
+        .focus-card h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 600; color: var(--borden-platinum); }
+        .focus-card p { color: var(--borden-text-muted); font-size: 0.95rem; }
+
+        /* Global Footer */
+        footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 0; text-align: center; font-size: 0.85rem; color: var(--borden-text-muted); background: #08090d; width: 100%; margin-top: auto; }
+
+        /* Mobile Viewports styling rules */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .nav-links { display: none; } 
+            .hero-buttons { flex-direction: column; align-items: center; margin-bottom: 40px; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
+            main { padding: 40px 20px; gap: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-area">
+            <img src="borden-logo.png" alt="Borden Design Logo">
+            <span class="logo-text">BORDEN DESIGN</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" style="color: var(--borden-accent);">Home</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a> 
+            <a href="contact.html" class="btn-cta">Get a Quote</a> 
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-badge">Digital Specialist</div>
+            <h1 class="hero-title">Building Clean Websites, Modern Logos, & <span>Smart CRM Systems</span></h1>
+            <p class="hero-subtitle">No over-complicated tech talk. Just high-performance front-ends, striking visual identities, and organized business management pipelines tailored for your business.</p>
+            <div class="hero-buttons">
+                <a href="portfolio.html" class="btn-primary">View My Portfolio</a>
+                <a href="contact.html" class="btn-secondary">Let's Discuss a Project</a> 
+            </div>
+            
+            <div class="hero-image-showcase">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Borden Design High-Performance Engineering Setup">
+            </div>
+        </section>
+
+        <section class="focus-section">
+            <h2 class="section-headline">What I Do Best</h2>
+            <div class="focus-grid">
+                
+                <div class="focus-card">
+                    <span class="focus-icon">💻</span>
+                    <h3>Web Development</h3>
+                    <p>Clean, beautifully structured websites hand-coded with raw HTML, CSS, and interactive JavaScript layout features tailored to present your business beautifully.</p>
+                </div>
+
+                <div class="focus-card">
+                    <span class="focus-icon">✨</span>
+                    <h3>Logo & Branding</h3>
+                    <p>Minimalist, modern, high-fidelity logo designs crafted to stand out digitally across web platforms, business materials, and social media feeds.</p>
+                </div>
+
+                <div class="focus-card">
+                    <span class="focus-icon">⚙️</span>
+                    <h3>CRM Systems</h3>
+                    <p>Complete setup and structural tuning within Zoho CRM. I organize client pipelines, eliminate clutter, and optimize your data inputs so your business runs smoothly.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Borden Design. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
