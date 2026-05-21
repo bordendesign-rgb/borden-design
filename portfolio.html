@@ -10,17 +10,17 @@
             --borden-dark: #0a0b10;
             --borden-card: #131520;
             --borden-platinum: #e2e8f0;
-            --borden-accent: #00f2fe; 
+            --borden-accent: #00f2fe;
             --borden-text-muted: #8ea0dd;
             --gradient-accent: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
         }
 
         /* Reset and Base Styles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--borden-dark); 
-            color: #ffffff; 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--borden-dark);
+            color: #ffffff;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -48,6 +48,11 @@
         .btn-cta { background: transparent; border: 1px solid var(--borden-accent); padding: 10px 22px; border-radius: 25px; color: var(--borden-accent) !important; font-weight: 600; transition: 0.3s; }
         .btn-cta:hover { background: var(--gradient-accent); color: var(--borden-dark) !important; border-color: transparent; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); transform: scale(1.03); }
 
+        /* Mobile Menu */
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; color: var(--borden-accent); }
+        .mobile-nav { display: none; position: fixed; top: 90px; left: 0; width: 100%; height: calc(100vh - 90px); background: var(--borden-dark); flex-direction: column; align-items: center; justify-content: center; gap: 40px; z-index: 1000; }
+        .mobile-nav.active { display: flex; }
+
         /* Main Page Layout Wrapper */
         main {
             flex: 1;
@@ -73,14 +78,14 @@
             width: 100%;
         }
         
-        .project-card { 
-            background: var(--borden-card); 
-            border: 1px solid rgba(255,255,255,0.02); 
-            padding: 30px; 
-            border-radius: 24px; 
-            transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
-            display: flex; 
-            flex-direction: column; 
+        .project-card {
+            background: var(--borden-card);
+            border: 1px solid rgba(255,255,255,0.02);
+            padding: 30px;
+            border-radius: 24px;
+            transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
             justify-content: space-between;
         }
         .project-card:hover { transform: translateY(-6px) scale(1.02); border-color: rgba(0, 242, 254, 0.3); box-shadow: 0 15px 35px rgba(0, 242, 254, 0.12); }
@@ -111,7 +116,8 @@
 
         @media (max-width: 768px) {
             .page-title { font-size: 2.3rem; }
-            .nav-links { display: none; } 
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
             main { padding: 40px 20px; }
         }
     </style>
@@ -123,6 +129,7 @@
             <img src="borden-logo.png" alt="Borden Design Logo">
             <span class="logo-text">BORDEN DESIGN</span>
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
@@ -132,6 +139,17 @@
         </div>
     </nav>
 
+    <div class="mobile-nav" id="mobileMenu">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="services.html" onclick="toggleMenu()">Services</a>
+        <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    </script>
+
     <main>
         <section class="page-header">
             <h1 class="page-title">Featured <span>Projects</span></h1>
@@ -139,7 +157,6 @@
         </section>
 
         <section class="portfolio-grid">
-            
             <div class="project-card">
                 <div class="project-image-wrapper">
                     <img src="pigeon-cay-preview.png" alt="Pigeon Cay Tours">
@@ -190,7 +207,6 @@
                 </div>
                 <a href="contact.html" class="project-link">Inquire About This Service <span>→</span></a>
             </div>
-
         </section>
     </main>
 

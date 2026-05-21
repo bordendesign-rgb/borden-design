@@ -10,34 +10,15 @@
             --borden-dark: #0a0b10;
             --borden-card: #131520;
             --borden-platinum: #e2e8f0;
-            --borden-accent: #00f2fe; 
+            --borden-accent: #00f2fe;
             --borden-text-muted: #8ea0dd;
             --gradient-accent: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
         }
 
-        /* Reset and Base Styles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--borden-dark); 
-            color: #ffffff; 
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--borden-dark); color: #ffffff; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Clean Document Flow Navigation (No Overlaps) */
-        nav {
-            height: 90px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 6%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            background: #0a0b10;
-            width: 100%;
-        }
+        nav { height: 90px; display: flex; justify-content: space-between; align-items: center; padding: 0 6%; border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: #0a0b10; width: 100%; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-area img { height: 50px; width: 50px; border-radius: 8px; object-fit: cover; }
         .logo-text { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.5px; }
@@ -48,77 +29,36 @@
         .btn-cta { background: transparent; border: 1px solid var(--borden-accent); padding: 10px 22px; border-radius: 25px; color: var(--borden-accent) !important; font-weight: 600; transition: 0.3s; }
         .btn-cta:hover { background: var(--gradient-accent); color: var(--borden-dark) !important; border-color: transparent; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); transform: scale(1.03); }
 
-        /* Main Page Layout Wrapper */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-            padding: 60px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
+        /* Mobile Menu Styles */
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; color: var(--borden-accent); }
+        .mobile-nav { display: none; position: fixed; top: 90px; left: 0; width: 100%; height: calc(100vh - 90px); background: var(--borden-dark); flex-direction: column; align-items: center; justify-content: center; gap: 40px; z-index: 1000; }
+        .mobile-nav.active { display: flex; }
 
-        /* Page Intro Section */
-        .page-header {
-            text-align: center;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+        main { flex: 1; display: flex; flex-direction: column; gap: 60px; padding: 60px 40px; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .page-header { text-align: center; width: 100%; margin-bottom: 20px; }
         .page-title { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--borden-platinum); margin-bottom: 16px; }
         .page-title span { background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .page-subtitle { font-size: 1.1rem; color: var(--borden-text-muted); max-width: 600px; margin: 0 auto; }
 
-        /* Deep Dive Services Grid Layout */
-        .services-detailed-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            width: 100%;
-        }
-        
+        .services-detailed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; width: 100%; }
         .service-deep-card { background: var(--borden-card); border: 1px solid rgba(255,255,255,0.02); padding: 35px; border-radius: 24px; transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; position: relative; overflow: hidden; }
         .service-deep-card:hover { transform: translateY(-6px) scale(1.02); border-color: rgba(0, 242, 254, 0.3); box-shadow: 0 15px 35px rgba(0, 242, 254, 0.12); }
-        
-        /* Premium Image Containers for each card */
-        .service-image-wrapper {
-            width: 100%;
-            height: 180px;
-            border-radius: 14px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: #0d0e15;
-        }
-        .service-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.75;
-            transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .service-deep-card:hover .service-image-wrapper img {
-            opacity: 1;
-            transform: scale(1.06);
-        }
-
+        .service-image-wrapper { width: 100%; height: 180px; border-radius: 14px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.05); background: #0d0e15; }
+        .service-image-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .service-deep-card:hover .service-image-wrapper img { opacity: 1; transform: scale(1.06); }
         .service-deep-card h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 16px; color: var(--borden-platinum); display: flex; align-items: center; gap: 12px; }
         .service-inline-icon { font-size: 1.6rem; }
         .service-description { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 30px; line-height: 1.6; }
-        
-        /* Checkmark Capabilities Sublist */
         .capability-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: auto; border-top: 1px solid rgba(255, 255, 255, 0.04); padding-top: 20px; }
         .capability-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--borden-text-muted); }
         .capability-list li span { color: var(--borden-accent); font-weight: bold; }
 
-        /* Global Footer */
         footer { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 0; text-align: center; font-size: 0.85rem; color: var(--borden-text-muted); background: #08090d; width: 100%; margin-top: auto; }
 
-        /* Mobile Viewports styling rules */
         @media (max-width: 768px) {
             .page-title { font-size: 2.3rem; }
-            .nav-links { display: none; } 
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
             main { padding: 40px 20px; gap: 40px; }
             .service-deep-card { padding: 24px; }
             .service-image-wrapper { height: 150px; }
@@ -132,6 +72,7 @@
             <img src="borden-logo.png" alt="Borden Design Logo">
             <span class="logo-text">BORDEN DESIGN</span>
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="services.html" style="color: var(--borden-accent);">Services</a>
@@ -141,6 +82,17 @@
         </div>
     </nav>
 
+    <div class="mobile-nav" id="mobileMenu">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="services.html" onclick="toggleMenu()">Services</a>
+        <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+    </script>
+
     <main>
         <section class="page-header">
             <h1 class="page-title">Professional <span>Capabilities</span></h1>
@@ -148,7 +100,6 @@
         </section>
 
         <section class="services-detailed-grid">
-            
             <div class="service-deep-card">
                 <div class="service-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=600&q=80" alt="Web Engineering Showcase">
@@ -190,7 +141,6 @@
                     <li><span>✓</span> Clean tracking for client information channels</li>
                 </ul>
             </div>
-
         </section>
     </main>
 
